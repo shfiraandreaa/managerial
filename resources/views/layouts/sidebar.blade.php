@@ -11,13 +11,13 @@
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{route('dashboard')}}">
             <i class="c-sidebar-nav-icon fas fa-tachometer-alt"></i> Dashboard</a>
         </li>
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="">
-            <i class="c-sidebar-nav-icon fas fa-tasks"></i> Task</a>
-        </li>
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="">
+        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{route('category.index')}}">
             <i class="c-sidebar-nav-icon fas fa-ellipsis-h"></i> Category</a>
         </li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="">
+            <i class="c-sidebar-nav-icon fas fa-tasks"></i> Task</a>
+        </li>
+        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{route('user.index')}}">
             <i class="c-sidebar-nav-icon fas fa-users"></i> User Management</a>
         </li>
       </ul>

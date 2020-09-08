@@ -15,7 +15,9 @@
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <title>CoreUI Free Bootstrap Admin Template</title>
+    <title>
+      Managerial- @yield('title')
+    </title>
     <link rel="apple-touch-icon" sizes="57x57" href="{{asset('public/assets/favicon/apple-icon-57x57.png')}}">
     <link rel="apple-touch-icon" sizes="60x60" href="{{asset('public/assets/favicon/apple-icon-60x60.png')}}">
     <link rel="apple-touch-icon" sizes="72x72" href="{{asset('public/favicon/apple-icon-72x72.png')}}">
@@ -34,9 +36,10 @@
     <meta name="msapplication-TileImage" content="{{asset('public/assets/favicon/ms-icon-144x144.png')}}">
     <meta name="theme-color" content="#ffffff">
     <!-- Main styles for this application-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="{{asset('public/core-ui/css/style.css')}}" rel="stylesheet">
     <link href="{{asset('public/@coreui/chartjs/css/coreui-chartjs.css')}}" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css"/>
     @stack('styles')
 
   </head>
@@ -55,9 +58,13 @@
               <div class="c-avatar"><img class="c-avatar-img" src="{{asset('public/assets/img/avatars/6.jpg')}}" alt="user@email.com"></div>
             </a>
             <div class="dropdown-menu dropdown-menu-right pt-0">
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
                     <i class="c-icon mr-2 fas fa-sign-out-alt"></i> Logout
                 </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+              </form>
             </div>
           </li>
         </ul>
@@ -88,7 +95,10 @@
     <script src="{{asset('public/@coreui/chartjs/js/coreui-chartjs.bundle.js')}}"></script>
     <script src="{{asset('public/@coreui/utils/js/coreui-utils.js')}}"></script>
     <script src="{{asset('public/core-ui/js/main.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/96f7e216a3.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     @stack('scripts')
 

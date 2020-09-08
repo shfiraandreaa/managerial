@@ -14,7 +14,7 @@
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{route('category.index')}}">
             <i class="c-sidebar-nav-icon fas fa-ellipsis-h"></i> Category</a>
         </li>
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="">
+        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{route('task.index')}}">
             <i class="c-sidebar-nav-icon fas fa-tasks"></i> Task</a>
         </li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{route('user.index')}}">

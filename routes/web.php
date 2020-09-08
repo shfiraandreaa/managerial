@@ -40,5 +40,11 @@ Route::middleware('auth:web')->group(function () {
     Route::post('user/load-data','UserManagement@loadData')->name('user.load-data');
     Route::post('user/show','UserManagement@show')->name('user.show');
     Route::post('user/store','UserManagement@store')->name('user.store');
+    Route::post('user/get-data','UserManagement@getData')->name('user.get-data');
 
+    Route::get('task', 'TaskController@index')->name('task.index');
+    Route::get('task/delete/{id?}','TaskController@delete')->name('task.delete');
+    Route::post('task/load-data','TaskController@loadData')->name('task.load-data');
+    Route::post('task/show','TaskController@show')->name('task.show');
+    Route::post('task/store','TaskController@store')->name('task.store');
 });

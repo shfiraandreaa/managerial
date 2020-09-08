@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
 
 Route::get('template', function () {
@@ -22,6 +22,8 @@ Route::get('template', function () {
 });
 
 Auth::routes();
+
+Route::middleware('auth:web')->group(function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('dashboard', 'DashboardController@index')->name('dashboard');
@@ -39,3 +41,4 @@ Route::post('user/load-data','UserManagement@loadData')->name('user.load-data');
 Route::post('user/show','UserManagement@show')->name('user.show');
 Route::post('user/store','UserManagement@store')->name('user.store');
 
+});

@@ -4,12 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use Auth;
 
 class CategoryController extends Controller
 {
     public function index()
     {
-        return view('category.index');
+        $role = Auth::user()->role;
+
+        if ($role == "admin") {
+             return view('category.index');
+        }else{
+            return redirect(route('dashboard'));
+        }
     }
 
     public function loadData(Request $request)

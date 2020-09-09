@@ -4,13 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Auth;
 use Hash;
 
 class UserManagement extends Controller
 {
     public function index()
     {
-        return view('user.index');
+        $role = Auth::user()->role;
+
+        if ($role == "admin") {
+            return view('user.index');
+
+        } else {
+            return redirect(route('dashboard'));
+        }
+        
     }
 
     public function loadData(Request $request)

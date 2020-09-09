@@ -17,10 +17,28 @@ class TaskController extends Controller
 
     public function loadData(Request $request)
     {
-        $data = Task::select('tasks.*','categories.category_name','users.username','users.name')
-                ->join('categories','tasks.id_category','=','categories.id')
-                ->join('users','tasks.id_user','=','users.id')
-                ->get();
+        $role = Auth::user()->role;
+        $data = [];
+
+        if ($role == "staff") {
+            $data = Task::select('tasks.*','categories.category_name','users.username','users.name')
+            ->join('categories','tasks.id_category','=','categories.id')
+            ->join('users','tasks.id_user','=','users.id')
+            ->where('id_user',Auth::user()->id)
+            ->get();
+        } else if($role == "manager"){
+            $data = Task::select('tasks.*','categories.category_name','users.username','users.name')
+            ->join('categories','tasks.id_category','=','categories.id')
+            ->join('users','tasks.id_user','=','users.id')
+            ->where('id_user_manager',Auth::user()->id)
+            ->get();
+        }else{
+            $data = Task::select('tasks.*','categories.category_name','users.username','users.name')
+            ->join('categories','tasks.id_category','=','categories.id')
+            ->join('users','tasks.id_user','=','users.id')
+            ->get();
+        }
+        
         return response()->json(['data'=>$data]);
     }
 

@@ -1,3 +1,7 @@
+@php
+    $role = Auth::user()->role;
+@endphp
+
 @extends('layouts.template')
 
 @section('title')
@@ -18,11 +22,13 @@
 @section('container')
     <div class="row">
 
-        <div class="col-md-12 mb-2 text-right">
-            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modal-task">
-                Add Task
-            </button>
-        </div>
+        @if ($role != "staff")
+            <div class="col-md-12 mb-2 text-right">
+                <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modal-task">
+                    Add Task
+                </button>
+            </div>
+        @endif
 
         @include('user.modal')
 

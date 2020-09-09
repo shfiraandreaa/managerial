@@ -19,6 +19,12 @@ class UserManagement extends Controller
         return response()->json(['data'=>$data]);
     }
 
+    public function getData(Request $request)
+    {
+        $data = User::select()->where('role','staff')->get();
+        return response()->json($data);
+    }
+
     public function show(Request $request)
     {
         $data = User::select()->where('id',$request->id)->first();

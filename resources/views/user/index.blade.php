@@ -1,7 +1,7 @@
 @extends('layouts.template')
 
 @section('title')
-    User
+    - User
 @endsection
 
 @push('style')

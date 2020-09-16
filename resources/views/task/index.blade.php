@@ -5,7 +5,7 @@
 @extends('layouts.template')
 
 @section('title')
-    Task
+    - Task
 @endsection
 
 @push('style')
@@ -170,7 +170,6 @@
         });
     }
     
-
     function staff() {
         $.ajax({
             type: "post",

@@ -1,7 +1,7 @@
 @extends('layouts.template')
 
 @section('title')
-    Category
+    - Category
 @endsection
 
 @push('style')
